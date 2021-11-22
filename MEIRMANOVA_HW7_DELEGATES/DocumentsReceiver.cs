@@ -9,7 +9,7 @@ namespace MEIRMANOVA_HW7_DELEGATES
     public delegate void FilesLoadedEventHandler();
     public delegate void TimedOutEventHandler();
 
-    public class GetDocs : IDisposable
+    public class DocumentsReceiver: IDisposable
     {
         public event FilesLoadedEventHandler DocumentsReady;
         public event TimedOutEventHandler TimedOut;

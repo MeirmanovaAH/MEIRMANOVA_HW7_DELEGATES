@@ -17,14 +17,14 @@ namespace MEIRMANOVA_HW7_DELEGATES
             if (!Directory.Exists(toDirectory))
                 Directory.CreateDirectory(toDirectory);
 
-            using GetDocs getdocs = new();
-            getdocs.DocumentsReady += DocumentsReadyEvent;
-            getdocs.TimedOut += TimedOutEvent;
+            using DocumentsReceiver documentsReceiver = new();
+            documentsReceiver.DocumentsReady += DocumentsReadyEvent;
+            documentsReceiver.TimedOut += TimedOutEvent;
 
             Console.WriteLine("Для создания документов введите Y");
             var auto = Console.ReadLine();
 
-            bool isStarted = getdocs.Start(toDirectory, waitingInterval, fileList);
+            bool isStarted = documentsReceiver.Start(toDirectory, waitingInterval, fileList);
 
             if (!isStarted)
             {
